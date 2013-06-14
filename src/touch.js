@@ -29,7 +29,7 @@
     setPrimaryTouch: function(inTouch) {
       if (this.firstTouch === null) {
         this.firstTouch = inTouch.identifier;
-        this.firstXY = {X: inTouch.clientX, Y: inTouch.clientY};
+        this.firstXY = {X: inTouch.pageX, Y: inTouch.pageY};
         this.scrolling = false;
       }
     },
@@ -79,8 +79,8 @@
           // check the intended scroll axis, and other axis
           var a = scrollAxis;
           var oa = scrollAxis === 'Y' ? 'X' : 'Y';
-          var da = Math.abs(t['client' + a] - this.firstXY[a]);
-          var doa = Math.abs(t['client' + oa] - this.firstXY[oa]);
+          var da = Math.abs(t['page' + a] - this.firstXY[a]);
+          var doa = Math.abs(t['page' + oa] - this.firstXY[oa]);
           // if delta in the scroll axis > delta other axis, scroll instead of
           // making events
           ret = da >= doa;
@@ -206,7 +206,7 @@
       // only the primary finger will synth mouse events
       if (this.isPrimaryTouch(t)) {
         // remember x/y of last touch
-        var lt = {x: t.clientX, y: t.clientY};
+        var lt = {x: t.pageX, y: t.pageY};
         lts.push(lt);
         var fn = (function(lts, lt){
           var i = lts.indexOf(lt);
