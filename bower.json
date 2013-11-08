@@ -1,0 +1,21 @@
+{
+  "name": "PointerEvents",
+  "main": "PointerEvents.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/azakus/PointerEvents",
+  "authors": [
+    "Daniel Freedman <dfreedm@google.com>"
+  ],
+  "license": "BSD",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "WeakMap": "Polymer/WeakMap"
+  }
+}
